@@ -1,0 +1,10 @@
+{
+    "limit": 100,
+    "sessions": "sessions",
+    "presenters": "presenters",
+    "subscribers": "subscribers",
+    "users": "users",
+    "feedback": "feedback",
+    "admin": "admin",
+    "sessionrequests": "sessionrequests"
+}

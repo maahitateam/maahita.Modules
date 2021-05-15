@@ -1,0 +1,4 @@
+node_modules/
+lib/
+firebaseConfig.json
+serviceAccount.json
