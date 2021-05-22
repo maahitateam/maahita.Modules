@@ -32,6 +32,8 @@ export const sessionRequest = {
     rejected: 300
 };
 
+export const jaas_columns = ['appid', 'kid', 'privatekey', 'server'];
+
 function hasOwnProperty<X extends {}, Y extends PropertyKey>
     (obj: X, prop: Y): obj is X & Record<Y, unknown> {
     return obj.hasOwnProperty('_' + prop); // firebase time has _seconds property

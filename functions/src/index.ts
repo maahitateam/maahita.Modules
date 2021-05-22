@@ -8,6 +8,7 @@ import * as session_routes from './session/index';
 import * as presenter_routes from './presenter/index';
 import * as notify_routes from "./notify/index";
 import * as session_request_routes from "./sessionrequest/index";
+import * as jaasapi_routes from "./jaasapi/index";
 import * as upload_routes from "./upload/index";
 // user
 const app_user: express.Application = express();
@@ -63,6 +64,15 @@ main_upload.use(cors({ origin: true }));
 main_upload.use(express.json());
 main_upload.use('/', app_upload);
 
+// jaas api
+const app_jaasapi: express.Application = express();
+const main_jaasapi: express.Application = express();
+app_jaasapi.use('/', jaasapi_routes);
+main_jaasapi.use(helmet());
+main_jaasapi.use(cors({ origin: true }));
+main_jaasapi.use(express.json());
+main_jaasapi.use('/', app_jaasapi);
+
 //session/request
 export const user = functions.https.onRequest(main_user);
 export const session = functions.https.onRequest(main_session);
@@ -70,4 +80,5 @@ export const presenter = functions.https.onRequest(main_presenter);
 export const notify = functions.https.onRequest(main_notifiy);
 export const upload = functions.https.onRequest(main_upload);
 export const sessionrequest = functions.https.onRequest(main_sessionrequest);
+export const jaasapi = functions.https.onRequest(main_jaasapi);
 
