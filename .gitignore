@@ -3,3 +3,6 @@ lib/
 firebaseConfig.json
 serviceAccount.json
 .DS_Store
+functions/ui-debug.log
+functions/firebase-debug.log
+.firebaserc

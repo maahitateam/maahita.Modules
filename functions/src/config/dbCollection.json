@@ -6,5 +6,6 @@
     "users": "users",
     "feedback": "feedback",
     "admin": "admin",
-    "sessionrequests": "sessionrequests"
+    "sessionrequests": "sessionrequests",
+    "jaassettings": "jaassettings"
 }
