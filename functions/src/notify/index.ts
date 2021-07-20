@@ -3,14 +3,6 @@ import { isAuthenticated, isAuthorized } from "../auth/index";
 import admin from "../models/firebase-service";
 const router = Router();
 
-// module
-// id
-// notiifcation title
-// notification content
-// notification log
-// type of notification
-// sendto
-
 router.post('/', isAuthenticated, isAuthorized({ hasRole: ["admin", "presenter"], allowSameUser: true }), async (req: Request, res: Response) => {
     try {
         const body = req.body;

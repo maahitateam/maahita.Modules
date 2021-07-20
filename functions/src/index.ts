@@ -10,6 +10,7 @@ import * as notify_routes from "./notify/index";
 import * as session_request_routes from "./sessionrequest/index";
 import * as jaasapi_routes from "./jaasapi/index";
 import * as upload_routes from "./upload/index";
+import * as jitsi_routes from "./jitsi/index";
 // user
 const app_user: express.Application = express();
 const main_user: express.Application = express();
@@ -73,6 +74,15 @@ main_jaasapi.use(cors({ origin: true }));
 main_jaasapi.use(express.json());
 main_jaasapi.use('/', app_jaasapi);
 
+// jaas api
+const app_jitsi: express.Application = express();
+const main_jitsi: express.Application = express();
+app_jitsi.use('/', jitsi_routes);
+main_jitsi.use(helmet());
+main_jitsi.use(cors({ origin: true }));
+main_jitsi.use(express.json());
+main_jitsi.use('/', app_jitsi);
+
 //session/request
 export const user = functions.https.onRequest(main_user);
 export const session = functions.https.onRequest(main_session);
@@ -81,4 +91,4 @@ export const notify = functions.https.onRequest(main_notifiy);
 export const upload = functions.https.onRequest(main_upload);
 export const sessionrequest = functions.https.onRequest(main_sessionrequest);
 export const jaasapi = functions.https.onRequest(main_jaasapi);
-
+export const jitsiapi = functions.https.onRequest(main_jitsi);
