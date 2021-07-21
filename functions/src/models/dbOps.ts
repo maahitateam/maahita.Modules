@@ -16,7 +16,7 @@ export const getCollectionData = async (collection: string, querie: query, colum
         });
         return snapShotData;
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 
@@ -24,7 +24,7 @@ export const createDocument = async (data: any, collection: string, uid: string)
     try {
         return await dbref.collection(collection).doc(uid).create(data);
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 
@@ -32,7 +32,7 @@ export const updateDocument = async (id: string, data: any, collection: string):
     try {
         return await dbref.collection(collection).doc(id).set(data, { merge: true });
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 
@@ -40,7 +40,7 @@ export const deleteDocumentById = async (id: string, collection: string): Promis
     try {
         return await dbref.collection(collection).doc(id).delete();
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 
@@ -49,7 +49,7 @@ export const findDocById = async (id: string, collection: string): Promise<any> 
         const result = await dbref.collection(collection).doc(id).get();
         return result.data();
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 
@@ -57,7 +57,7 @@ export const findDocByIdToUpdate = async (id: string, collection: string): Promi
     try {
         return await dbref.collection(collection).doc(id).get();
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 
@@ -65,7 +65,7 @@ export const findDocByField = async (paramValue: string, collection: string, par
     try {
         return await dbref.collection(collection).where(param, "==", paramValue).get();
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
 export const getDocumentsByQuery = async (collection: string, queries: query[], columns: string[]) => {
@@ -82,6 +82,6 @@ export const getDocumentsByQuery = async (collection: string, queries: query[], 
         });
         return snapShotData;
     } catch (error) {
-        throw new Error(error);
+        throw new Error(JSON.stringify(error));
     }
 };
